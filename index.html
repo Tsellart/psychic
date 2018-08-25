@@ -50,22 +50,38 @@
             var compGuess = [];
 
             var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-            $(computerGuess).append(compGuess);
             console.log(computerGuess[0]);
 
             document.onkeyup = function(event) {
                 var myGuess = event.key;
-                $(alreadyGuessed).append(myGuess);
+                alreadyGuessed.push(myGuess);
+                document.getElementById("alreadyGuessed").innerHTML = "Letters Guessed: " +  alreadyGuessed;
                 console.log(myGuess[0]);
             
                 
-                if((myGuess === computerGuess[0]) && (guessesLeft > 0)) {
+                if((myGuess === computerGuess[0]) && (remainingGuess > 0)) {
                     wins++;
                     remainingGuess = 9;
                     alreadyGuessed.length = 0;
                     computerGuess.length = 0;
                     var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-                    $(computerGuess).append(compGuess);
+                    document.getElementById("wins").innerHTML = "Wins: " + wins;
+                    console.log(computerGuess[0]);
+                }
+
+                else if ((myGuess !== computerGuess[0]) && (remainingGuess > 0)) {
+                    remainingGuess === remainingGuess-1;
+                    document.getElementById('remainingGuess').innerHTML = "Guesses Remaining: " + remainingGuess;
+                }
+
+                else {
+                    losses++;
+                    remainingGuess = 9;
+                    alreadyGuessed.length = 0;
+                    computerGuess.length = 0;
+                    var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                    compGuess.push(computerGuess)
+                    document.getElementById("loses").innerHTML = "Losses: " + losses;
                     console.log(computerGuess[0]);
                 }
 
