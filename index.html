@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="text-center">Guess the Letter!</h1>
+
+        <div class = "text-center">
+            <div id="guesser">
+                <h2 Try to Guess the Letter></h2>
+                <ul class="list group">
+                    <li class="list-group-item">
+                        <span id="wins">Wins: </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span id="loses">Losses: </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span id="remainingGuess">Guesses Remaining: </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span id="alreadyGuessed">Letters Guessed: </span>
+                    </li>
+                </ul>
+
+                <br><br>
+
+
+
+            </div>    
+        
+    </div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            var wins = 0;
+            var loses = 0;
+            var remainingGuess = [9];
+            var alreadyGuessed = [];
+            var compGuess = [];
+
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            $(computerGuess).append(compGuess);
+            console.log(computerGuess[0]);
+
+            document.onkeyup = function(event) {
+                var myGuess = event.key;
+                $(alreadyGuessed).append(myGuess);
+                console.log(myGuess[0]);
+            
+                
+                if((myGuess === computerGuess[0]) && (guessesLeft > 0)) {
+                    wins++;
+                    remainingGuess = 9;
+                    alreadyGuessed.length = 0;
+                    computerGuess.length = 0;
+                    var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                    $(computerGuess).append(compGuess);
+                    console.log(computerGuess[0]);
+                }
+
+            }
+            
+
+        
+        });    
+        
+    </script>
+    
+</body>
+</html>
