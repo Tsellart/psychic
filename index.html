@@ -64,13 +64,13 @@
                     remainingGuess = 9;
                     alreadyGuessed.length = 0;
                     computerGuess.length = 0;
-                    var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
                     document.getElementById("wins").innerHTML = "Wins: " + wins;
                     console.log(computerGuess[0]);
                 }
 
                 else if ((myGuess !== computerGuess[0]) && (remainingGuess > 0)) {
-                    remainingGuess === remainingGuess-1;
+                    remainingGuess--;
                     document.getElementById('remainingGuess').innerHTML = "Guesses Remaining: " + remainingGuess;
                 }
 
