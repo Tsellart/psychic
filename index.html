@@ -49,6 +49,8 @@
             var alreadyGuessed = [];
             var compGuess = [];
 
+
+
             var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
             console.log(computerGuess[0]);
 
@@ -74,14 +76,13 @@
                     document.getElementById('remainingGuess').innerHTML = "Guesses Remaining: " + remainingGuess;
                 }
 
-                else {
-                    losses++;
+                else  {
+                    loses++;
                     remainingGuess = 9;
                     alreadyGuessed.length = 0;
                     computerGuess.length = 0;
-                    var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-                    compGuess.push(computerGuess)
-                    document.getElementById("loses").innerHTML = "Losses: " + losses;
+                    compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                    document.querySelector("#loses").innerHTML = "Losses: " + loses;
                     console.log(computerGuess[0]);
                 }
 
