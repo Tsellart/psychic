@@ -48,7 +48,11 @@
             var remainingGuess = [9];
             var alreadyGuessed = [];
             var compGuess = [];
-
+            
+            wins = 0;
+            loses = 0;
+            document.querySelector('#wins').innerHTML = "Wins: " + wins;
+            document.querySelector('#loses').innerHTML = "Losses: " + loses;
 
 
             var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
